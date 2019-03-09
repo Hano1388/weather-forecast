@@ -7,6 +7,7 @@ import GoogleMap from '../components/GoogleMap';
 
 class WeatherList extends Component {
   renderWeather(cityData) {
+    if (!cityData) return;
     const { id, name } = cityData.city;
     const temperatures = cityData.list.map(
       weather => weather.main.temp
@@ -51,4 +52,5 @@ class WeatherList extends Component {
 const mapStateToProps = ({ weather }) => {
   return { weather }
 }
+
 export default connect(mapStateToProps)(WeatherList);
